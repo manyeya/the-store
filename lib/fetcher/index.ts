@@ -3,7 +3,6 @@ const API_BASE_URL = 'https://fakestoreapi.com';
 
 // Default fetch options with Next.js 14+ caching behavior
 const defaultFetchOptions = {
-    cache: 'force-cache' as RequestCache,
     next: {
         revalidate: 3600, // 1 hour default revalidation
         tags: ['products'], // Default cache tag
