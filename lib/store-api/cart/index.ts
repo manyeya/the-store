@@ -1,3 +1,5 @@
+'use server'
+
 import { fetchData, postData, putData, deleteData } from "../../fetcher";
 import { Cart, CartCreateInput } from "./types";
 
@@ -15,16 +17,13 @@ export async function getUserCarts(userId: number): Promise<Cart[]> {
 }
 
 export async function createCart(cart: CartCreateInput): Promise<Cart> {
-  'use server';
   return postData<CartCreateInput, Cart>('/carts', cart);
 }
 
 export async function updateCart(id: number, cart: CartCreateInput): Promise<Cart> {
-  'use server';
   return putData<CartCreateInput, Cart>(`/carts/${id}`, cart);
 }
 
 export async function deleteCart(id: number): Promise<Cart> {
-  'use server';
   return deleteData<Cart>(`/carts/${id}`);
 }

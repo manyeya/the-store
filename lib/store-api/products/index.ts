@@ -1,3 +1,5 @@
+"use server"
+
 import { deleteData, fetchData, postData, putData } from "../../fetcher";
 import { Category, Product, ProductCreateInput, ProductUpdateInput, SortOptions } from "./types";
 
@@ -37,17 +39,14 @@ export async function getProductRealTime(id: number): Promise<Product> {
 
 // Product Operations---------------------------------------------------------------
 export async function createProduct(product: ProductCreateInput): Promise<Product> {
-  'use server';
   return postData<ProductCreateInput, Product>('/products', product);
 }
 
 export async function updateProduct(id: number, product: ProductUpdateInput): Promise<Product> {
-  'use server';
   return putData<ProductUpdateInput, Product>(`/products/${id}`, product);
 }
 
 export async function deleteProduct(id: number): Promise<Product> {
-  'use server';
   return deleteData<Product>(`/products/${id}`);
 }
 
