@@ -20,6 +20,7 @@ export async function getProductsByCategory(category: string): Promise<Product[]
 
 // For limited products with dynamic revalidation
 export async function getLimitedProducts(limit: number = 5): Promise<Product[]> {
+  await new Promise(resolve => setTimeout(resolve, 10000)); // Simulate delay
   return fetchData<Product[]>(`/products?limit=${limit}`, {
     next: {
       revalidate: 60, // More frequent revalidation for limited products
